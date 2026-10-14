@@ -1,0 +1,18 @@
+# ivpm: fetched tools and the Python venv
+packages/
+
+# Agent skills that ivpm installs (dev-skills dep-set)
+.agents/
+.claude/
+.codex/
+.cursor/
+
+# Lab outputs: `make gen` and `make run`
+labs/**/gen/
+labs/**/build/
+
+# Deck build
+pptx/node_modules/
+
+__pycache__/
+*.py[co]

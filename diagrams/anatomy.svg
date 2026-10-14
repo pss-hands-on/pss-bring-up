@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="1200" height="520" viewBox="0 0 1200 520">
+<defs>
+<marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2d3748"/></marker>
+<marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c53030"/></marker>
+<marker id="ahm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#718096"/></marker>
+</defs>
+<rect width="1200" height="520" fill="#ffffff"/>
+<rect x="15" y="15" width="1170" height="490" rx="18" fill="#f1f3f5" stroke="#4a5568" stroke-width="2" stroke-dasharray="7 5"/>
+<text x="40" y="48" font-family="Helvetica, Arial, sans-serif" font-size="18" fill="#1a202c" text-anchor="start" font-weight="bold">Environment  (UVM test · firmware · Python script)</text>
+<rect x="380" y="90" width="440" height="330" rx="16" fill="#ebf4ff" stroke="#2b6cb0" stroke-width="2"/>
+<text x="600" y="124" font-family="Helvetica, Arial, sans-serif" font-size="20" fill="#1a365d" text-anchor="middle" font-weight="bold">Operation-model instance</text>
+<rect x="410" y="145" width="380" height="70" rx="10" fill="#ffffff" stroke="#718096" stroke-width="2"/>
+<text x="422" y="172" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#2d3748" text-anchor="start" font-weight="bold">State</text>
+<text x="424" y="195" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#2d3748" text-anchor="start" font-weight="normal">base addresses, ids, config</text>
+<rect x="410" y="228" width="380" height="70" rx="10" fill="#ffffff" stroke="#718096" stroke-width="2"/>
+<text x="422" y="255" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#2d3748" text-anchor="start" font-weight="bold">Initialization</text>
+<text x="424" y="278" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#2d3748" text-anchor="start" font-weight="normal">initialize(base) — bind state</text>
+<rect x="410" y="311" width="380" height="90" rx="10" fill="#ffffff" stroke="#718096" stroke-width="2"/>
+<text x="422" y="338" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#2d3748" text-anchor="start" font-weight="bold">Operations</text>
+<text x="424" y="361" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#2d3748" text-anchor="start" font-weight="normal">functions on the component tree,</text>
+<text x="424" y="382" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#2d3748" text-anchor="start" font-weight="normal">registers, polling loops</text>
+<rect x="40" y="110" width="270" height="90" rx="10" fill="#f3efff" stroke="#6b46c1" stroke-width="2"/>
+<text x="52" y="137" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#44337a" text-anchor="start" font-weight="bold">Factory / ctor</text>
+<text x="54" y="160" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#44337a" text-anchor="start" font-weight="normal">create + initialize</text>
+<text x="54" y="181" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#44337a" text-anchor="start" font-weight="normal">returns the API handle</text>
+<line x1="310" y1="160" x2="406" y2="262" stroke="#6b46c1" stroke-width="3" marker-end="url(#ah)"/>
+<rect x="40" y="280" width="270" height="110" rx="10" fill="#f3efff" stroke="#6b46c1" stroke-width="2"/>
+<text x="52" y="307" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#44337a" text-anchor="start" font-weight="bold">Export API</text>
+<text x="54" y="330" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#44337a" text-anchor="start" font-weight="normal">perform an operation</text>
+<text x="54" y="351" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#44337a" text-anchor="start" font-weight="normal">notify an event (IRQ)</text>
+<line x1="310" y1="335" x2="406" y2="355" stroke="#6b46c1" stroke-width="3" marker-end="url(#ah)"/>
+<rect x="129.19" y="406" width="91.62" height="21" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="175" y="420" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#6b46c1" text-anchor="middle" font-weight="bold">env → model</text>
+<rect x="890" y="110" width="270" height="110" rx="10" fill="#e6f6ec" stroke="#2f855a" stroke-width="2"/>
+<text x="902" y="137" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#1c4532" text-anchor="start" font-weight="bold">Import API</text>
+<text x="904" y="160" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#1c4532" text-anchor="start" font-weight="normal">memory: read32 / write32</text>
+<text x="904" y="181" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#1c4532" text-anchor="start" font-weight="normal">platform: delay, yield, msg</text>
+<line x1="794" y1="355" x2="886" y2="175" stroke="#2f855a" stroke-width="3" marker-end="url(#ah)"/>
+<rect x="804.19" y="211" width="91.62" height="21" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="850" y="225" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#2f855a" text-anchor="middle" font-weight="bold">model → env</text>
+<rect x="890" y="270" width="270" height="90" rx="10" fill="#f1f3f5" stroke="#4a5568" stroke-width="2"/>
+<text x="902" y="297" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#1a202c" text-anchor="start" font-weight="bold">Your implementation</text>
+<text x="904" y="320" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#1a202c" text-anchor="start" font-weight="normal">bus agent / pointer /</text>
+<text x="904" y="341" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#1a202c" text-anchor="start" font-weight="normal">fake device</text>
+<line x1="1025" y1="220" x2="1025" y2="266" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+<text x="600" y="460" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="#2d3748" text-anchor="middle" font-weight="normal" font-style="italic">The model holds device knowledge; the environment holds everything else.</text>
+</svg>

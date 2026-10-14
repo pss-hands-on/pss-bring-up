@@ -1,0 +1,43 @@
+import addr_reg_pkg::*;
+import timer_regs_pkg::*;
+import timer_types_pkg::*;
+
+// Root of the timer operation model: the block registers, plus one
+// operation component per channel.
+component timer_c {
+    timer_regs_c  regs;
+    timer_ch_c    ch[2];
+
+    // Bind the whole register file. Channel offsets come from the generated
+    // register group, so they are stated once -- in the RDL.
+    solve function void initialize(addr_handle_t base) {
+        regs.set_handle(base);
+        foreach (ch[i]) {
+            ch[i].initialize(i,
+                make_handle_from_handle(base,
+                    regs.get_offset_of_instance_array("ch", i)));
+        }
+    }
+
+    // Is the expected block at this address?
+    target function bool probe() {
+        timer_regs__id_s id = regs.id.read();
+        return id.id == 0x7A11;
+    }
+
+    // Configure channel 'c', run it once, and wait for expiry.
+    target function void one_shot(int c, bit[32] ticks) {
+        timer_cfg_s cfg;
+        cfg.ticks    = ticks;
+        cfg.prescale = 0;
+        cfg.periodic = false;
+        cfg.irq_en   = false;
+        ch[c].configure(cfg);
+        ch[c].start();
+        ch[c].wait_done(10);
+    }
+
+    // The environment's API.
+    export target function probe;
+    export target function one_shot;
+}

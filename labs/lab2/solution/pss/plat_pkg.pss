@@ -1,0 +1,6 @@
+// What the operation model needs FROM its environment.
+// The environment (UVM test, firmware, Python harness) implements these.
+package plat_pkg {
+    // Wait for (at least) 'us' microseconds of device time.
+    import target function void plat_delay_us(int us);
+}

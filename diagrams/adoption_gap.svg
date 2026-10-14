@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="1200" height="400" viewBox="0 0 1200 400">
+<defs>
+<marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2d3748"/></marker>
+<marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c53030"/></marker>
+<marker id="ahm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#718096"/></marker>
+</defs>
+<rect width="1200" height="400" fill="#ffffff"/>
+<text x="600" y="34" font-family="Helvetica, Arial, sans-serif" font-size="20" fill="#2d3748" text-anchor="middle" font-weight="bold">Who needs device-programming content?</text>
+<rect x="40" y="60" width="230" height="80" rx="6" fill="#ebf4ff" stroke="#2b6cb0" stroke-width="2"/>
+<text x="155.0" y="107" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="#1a365d" text-anchor="middle" font-weight="bold">PSS tests</text>
+<rect x="274" y="60" width="210" height="80" rx="6" fill="#f3efff" stroke="#6b46c1" stroke-width="2"/>
+<text x="379.0" y="107" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="#44337a" text-anchor="middle" font-weight="bold">UVM sequences</text>
+<rect x="488" y="60" width="260" height="80" rx="6" fill="#e6f6ec" stroke="#2f855a" stroke-width="2"/>
+<text x="618.0" y="107" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="#1c4532" text-anchor="middle" font-weight="bold">firmware / drivers</text>
+<rect x="752" y="60" width="200" height="80" rx="6" fill="#e6fffa" stroke="#2c7a7b" stroke-width="2"/>
+<text x="852.0" y="107" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="#1d4044" text-anchor="middle" font-weight="bold">emulation bring-up</text>
+<rect x="956" y="60" width="200" height="80" rx="6" fill="#fff8e6" stroke="#b7791f" stroke-width="2"/>
+<text x="1056.0" y="107" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="#744210" text-anchor="middle" font-weight="bold">lab scripts</text>
+<path d="M40,160 L40,175 L270,175 L270,160" fill="none" stroke="#2b6cb0" stroke-width="2"/>
+<text x="155" y="200" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#2b6cb0" text-anchor="middle" font-weight="bold">where PSS adoption</text>
+<text x="155" y="220" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#2b6cb0" text-anchor="middle" font-weight="bold">usually stops</text>
+<path d="M274,160 L274,175 L1150,175 L1150,160" fill="none" stroke="#c53030" stroke-width="2"/>
+<text x="712" y="200" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#c53030" text-anchor="middle" font-weight="bold">need the same device knowledge — but aren’t “tests”</text>
+<rect x="40" y="245" width="550" height="140" rx="10" fill="#ebf4ff" stroke="#2b6cb0" stroke-width="2"/>
+<text x="52" y="272" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#1a365d" text-anchor="start" font-weight="bold">Adopting PSS for tests requires…</text>
+<text x="54" y="300" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#1a365d" text-anchor="start" font-weight="normal">• PSS as the test-description language</text>
+<text x="54" y="326" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#1a365d" text-anchor="start" font-weight="normal">• PSS content for every device a test touches</text>
+<text x="54" y="352" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#1a365d" text-anchor="start" font-weight="normal">• …and actually writing tests</text>
+<rect x="610" y="245" width="550" height="140" rx="10" fill="#fff5f5" stroke="#c53030" stroke-width="2"/>
+<text x="622" y="272" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#742a2a" text-anchor="start" font-weight="bold">…but in practice</text>
+<text x="624" y="300" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#742a2a" text-anchor="start" font-weight="normal">• mission-mode firmware exercises the design — not a test</text>
+<text x="624" y="326" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#742a2a" text-anchor="start" font-weight="normal">• teams can’t (yet) write full tests in PSS</text>
+<text x="624" y="352" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#742a2a" text-anchor="start" font-weight="normal">• PSS doesn’t exist for every device</text>
+</svg>

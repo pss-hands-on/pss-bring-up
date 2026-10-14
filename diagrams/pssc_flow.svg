@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="1200" height="470" viewBox="0 0 1200 470">
+<defs>
+<marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2d3748"/></marker>
+<marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c53030"/></marker>
+<marker id="ahm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#718096"/></marker>
+</defs>
+<rect width="1200" height="470" fill="#ffffff"/>
+<rect x="20" y="140" width="260" height="180" rx="10" fill="#ebf4ff" stroke="#2b6cb0" stroke-width="2"/>
+<text x="32" y="167" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#1a365d" text-anchor="start" font-weight="bold">PSS sources</text>
+<text x="34" y="195" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="15" fill="#1a365d" text-anchor="start" font-weight="normal">plat_pkg.pss</text>
+<text x="34" y="221" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="15" fill="#1a365d" text-anchor="start" font-weight="normal">timer_c.pss</text>
+<text x="34" y="247" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="15" fill="#1a365d" text-anchor="start" font-weight="normal">soc_c.pss</text>
+<text x="34" y="273" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="15" fill="#1a365d" text-anchor="start" font-weight="normal">(dependency order!)</text>
+<rect x="330" y="175" width="270" height="110" rx="10" fill="#2d3748" stroke="#1a202c" stroke-width="2"/>
+<text x="465" y="210" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="19" fill="#ffffff" text-anchor="middle" font-weight="bold">pssc compile</text>
+<text x="465" y="238" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="15" fill="#e2e8f0" text-anchor="middle" font-weight="normal">--root soc_c</text>
+<text x="465" y="262" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="15" fill="#e2e8f0" text-anchor="middle" font-weight="normal">-t op-model-&lt;flavor&gt;</text>
+<line x1="280" y1="230" x2="326" y2="230" stroke="#2d3748" stroke-width="3" marker-end="url(#ah)"/>
+<rect x="680" y="15" width="490" height="96" rx="10" fill="#f3efff" stroke="#6b46c1" stroke-width="2"/>
+<text x="695" y="43" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="17" fill="#44337a" text-anchor="start" font-weight="bold">op-model-sv</text>
+<text x="695" y="71" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="15" fill="#2d3748" text-anchor="start" font-weight="normal">soc_c_pkg.sv (+ .svh)</text>
+<text x="695" y="95" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#718096" text-anchor="start" font-weight="normal">pssc_reg_pkg.sv   (runtime core)</text>
+<line x1="600" y1="230" x2="676" y2="63" stroke="#6b46c1" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="680" y="127" width="490" height="96" rx="10" fill="#e6f6ec" stroke="#2f855a" stroke-width="2"/>
+<text x="695" y="155" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="17" fill="#1c4532" text-anchor="start" font-weight="bold">op-model-c</text>
+<text x="695" y="183" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="15" fill="#2d3748" text-anchor="start" font-weight="normal">soc.h  soc.c  soc_regs.h</text>
+<text x="695" y="207" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#718096" text-anchor="start" font-weight="normal">pssc_mem*.h  pssc_env.h   (runtime core)</text>
+<line x1="600" y1="230" x2="676" y2="175" stroke="#2f855a" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="680" y="239" width="490" height="96" rx="10" fill="#e6fffa" stroke="#2c7a7b" stroke-width="2"/>
+<text x="695" y="267" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="17" fill="#1d4044" text-anchor="start" font-weight="bold">op-model-cpp</text>
+<text x="695" y="295" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="15" fill="#2d3748" text-anchor="start" font-weight="normal">soc.hpp</text>
+<text x="695" y="319" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#718096" text-anchor="start" font-weight="normal">pssc_reg.hpp  pssc_env.hpp   (runtime core)</text>
+<line x1="600" y1="230" x2="676" y2="287" stroke="#2c7a7b" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="680" y="351" width="490" height="96" rx="10" fill="#fff8e6" stroke="#b7791f" stroke-width="2"/>
+<text x="695" y="379" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="17" fill="#744210" text-anchor="start" font-weight="bold">op-model-py</text>
+<text x="695" y="407" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="15" fill="#2d3748" text-anchor="start" font-weight="normal">soc.py</text>
+<text x="695" y="431" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#718096" text-anchor="start" font-weight="normal">pssc_rt.py   (runtime core)</text>
+<line x1="600" y1="230" x2="676" y2="399" stroke="#b7791f" stroke-width="2" marker-end="url(#ah)"/>
+</svg>

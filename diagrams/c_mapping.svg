@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="1200" height="440" viewBox="0 0 1200 440">
+<defs>
+<marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2d3748"/></marker>
+<marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c53030"/></marker>
+<marker id="ahm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#718096"/></marker>
+</defs>
+<rect width="1200" height="440" fill="#ffffff"/>
+<rect x="30" y="30" width="520" height="180" rx="10" fill="#ebf4ff" stroke="#2b6cb0" stroke-width="2"/>
+<text x="42" y="57" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#1a365d" text-anchor="start" font-weight="bold">State: complete struct types</text>
+<text x="44" y="83" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#1a365d" text-anchor="start" font-weight="normal">typedef struct timer_c {</text>
+<text x="44" y="107" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#1a365d" text-anchor="start" font-weight="normal">    int         id;</text>
+<text x="44" y="131" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#1a365d" text-anchor="start" font-weight="normal">    pssc_addr_t base;</text>
+<text x="44" y="155" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#1a365d" text-anchor="start" font-weight="normal">} timer_c;</text>
+<text x="44" y="179" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#1a365d" text-anchor="start" font-weight="normal">typedef struct soc_c { timer_c tmr[2]; } soc_c;</text>
+<rect x="30" y="240" width="520" height="180" rx="10" fill="#f3efff" stroke="#6b46c1" stroke-width="2"/>
+<text x="42" y="267" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#44337a" text-anchor="start" font-weight="bold">Export API + lifecycle</text>
+<text x="44" y="293" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#44337a" text-anchor="start" font-weight="normal">void soc_init(soc_c *_self, pssc_addr_t base);</text>
+<text x="44" y="317" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#44337a" text-anchor="start" font-weight="normal">void soc_delay_ticks(soc_c *_self, int t,</text>
+<text x="44" y="341" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#44337a" text-anchor="start" font-weight="normal">                     uint32_t ticks);</text>
+<text x="44" y="365" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#44337a" text-anchor="start" font-weight="normal">void timer_start(timer_c *_self, uint32_t ticks);</text>
+<text x="44" y="389" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#44337a" text-anchor="start" font-weight="normal">   →  &lt;prefix&gt;_&lt;function&gt;(self, ...)</text>
+<rect x="650" y="30" width="520" height="130" rx="10" fill="#e6f6ec" stroke="#2f855a" stroke-width="2"/>
+<text x="662" y="57" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#1c4532" text-anchor="start" font-weight="bold">Import API: model imports</text>
+<text x="664" y="85" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#1c4532" text-anchor="start" font-weight="normal">/* named exactly as the model names them */</text>
+<text x="664" y="111" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#1c4532" text-anchor="start" font-weight="normal">void plat_delay_us(int us);</text>
+<text x="664" y="137" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#1c4532" text-anchor="start" font-weight="normal">/* + pssc_message() if the model reports */</text>
+<rect x="650" y="190" width="520" height="230" rx="10" fill="#e6f6ec" stroke="#2f855a" stroke-width="2"/>
+<text x="662" y="217" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#1c4532" text-anchor="start" font-weight="bold">Import API: memory seam (pick one)</text>
+<text x="664" y="245" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#1c4532" text-anchor="start" font-weight="normal">--mem-access pointer    *(volatile u32*)a</text>
+<text x="664" y="271" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#1c4532" text-anchor="start" font-weight="normal">--mem-access functions  pssc_mem_read32(a)</text>
+<text x="664" y="297" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#1c4532" text-anchor="start" font-weight="normal">--link-style vtable     bus-&gt;read32(ctx,a)</text>
+<text x="664" y="323" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#1c4532" text-anchor="start" font-weight="normal"></text>
+<text x="664" y="349" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#1c4532" text-anchor="start" font-weight="normal">--lifecycle static      no malloc</text>
+<text x="664" y="375" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#1c4532" text-anchor="start" font-weight="normal">--addr-bits 32          narrower handles</text>
+</svg>

@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="1200" height="500" viewBox="0 0 1200 500">
+<defs>
+<marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2d3748"/></marker>
+<marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c53030"/></marker>
+<marker id="ahm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#718096"/></marker>
+</defs>
+<rect width="1200" height="500" fill="#ffffff"/>
+<rect x="30" y="30" width="360" height="140" rx="6" fill="#f3efff" stroke="#6b46c1" stroke-width="2"/>
+<text x="210.0" y="52" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#44337a" text-anchor="middle" font-weight="normal" font-style="italic">interface class — EXPORT API</text>
+<text x="210.0" y="74" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="17" fill="#44337a" text-anchor="middle" font-weight="bold">soc_c_ctxt_if</text>
+<line x1="30" y1="86" x2="390" y2="86" stroke="#6b46c1" stroke-width="1"/>
+<text x="42" y="110" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#2d3748" text-anchor="start" font-weight="normal">task delay_ticks(int t,</text>
+<text x="42" y="132" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#2d3748" text-anchor="start" font-weight="normal">                 bit[31:0] ticks);</text>
+<rect x="810" y="30" width="360" height="140" rx="6" fill="#e6f6ec" stroke="#2f855a" stroke-width="2"/>
+<text x="990.0" y="52" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#1c4532" text-anchor="middle" font-weight="normal" font-style="italic">interface class — IMPORT API</text>
+<text x="990.0" y="74" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="17" fill="#1c4532" text-anchor="middle" font-weight="bold">soc_c_imp_if</text>
+<line x1="810" y1="86" x2="1170" y2="86" stroke="#2f855a" stroke-width="1"/>
+<text x="822" y="110" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#2d3748" text-anchor="start" font-weight="normal">extends pss_mem_if  // read32/write32..</text>
+<text x="822" y="132" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#2d3748" text-anchor="start" font-weight="normal">task plat_delay_us(int us);</text>
+<rect x="380" y="250" width="440" height="160" rx="6" fill="#ebf4ff" stroke="#2b6cb0" stroke-width="2"/>
+<text x="600.0" y="272" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#1a365d" text-anchor="middle" font-weight="normal" font-style="italic">factory + root context</text>
+<text x="600.0" y="294" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="17" fill="#1a365d" text-anchor="middle" font-weight="bold">soc_c_root #(Timp)</text>
+<line x1="380" y1="306" x2="820" y2="306" stroke="#2b6cb0" stroke-width="1"/>
+<text x="392" y="330" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#2d3748" text-anchor="start" font-weight="normal">static function soc_c_ctxt_if</text>
+<text x="392" y="352" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#2d3748" text-anchor="start" font-weight="normal">  create(Timp imp, addr_handle_t base);</text>
+<text x="392" y="374" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#2d3748" text-anchor="start" font-weight="normal">protected soc_c pss_root;  // the STATE</text>
+<text x="392" y="396" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#2d3748" text-anchor="start" font-weight="normal">protected Timp  pss_imp;</text>
+<rect x="880" y="300" width="290" height="110" rx="6" fill="#f1f3f5" stroke="#4a5568" stroke-width="2"/>
+<text x="1025.0" y="322" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#1a202c" text-anchor="middle" font-weight="normal" font-style="italic">your class</text>
+<text x="1025.0" y="344" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="17" fill="#1a202c" text-anchor="middle" font-weight="bold">my_imp</text>
+<line x1="880" y1="356" x2="1170" y2="356" stroke="#4a5568" stroke-width="1"/>
+<text x="892" y="380" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#2d3748" text-anchor="start" font-weight="normal">implements soc_c_imp_if</text>
+<rect x="30" y="300" width="290" height="110" rx="6" fill="#ffffff" stroke="#718096" stroke-width="2"/>
+<text x="175.0" y="322" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#2d3748" text-anchor="middle" font-weight="normal" font-style="italic">generated component</text>
+<text x="175.0" y="344" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="17" fill="#2d3748" text-anchor="middle" font-weight="bold">soc_c</text>
+<line x1="30" y1="356" x2="320" y2="356" stroke="#718096" stroke-width="1"/>
+<text x="42" y="380" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#2d3748" text-anchor="start" font-weight="normal">timer_c tmr[2];</text>
+<text x="42" y="402" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#2d3748" text-anchor="start" font-weight="normal">task delay_ticks(...)</text>
+<path d="M520,250 L300,172" fill="none" stroke="#6b46c1" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#ah)"/>
+<rect x="360.55" y="212" width="78.9" height="20" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="400" y="225" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#6b46c1" text-anchor="middle" font-weight="normal">implements</text>
+<path d="M680,250 L900,172" fill="none" stroke="#2f855a" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#ah)"/>
+<rect x="760.55" y="212" width="78.9" height="20" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="800" y="225" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#2f855a" text-anchor="middle" font-weight="normal">implements</text>
+<line x1="1025" y1="300" x2="1025" y2="174" stroke="#4a5568" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#ah)"/>
+<rect x="985.55" y="232" width="78.9" height="20" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="1025" y="245" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#4a5568" text-anchor="middle" font-weight="normal">implements</text>
+<line x1="380" y1="355" x2="324" y2="355" stroke="#718096" stroke-width="2" marker-end="url(#ah)"/>
+<text x="352" y="345" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#718096" text-anchor="middle" font-weight="normal">owns</text>
+<line x1="820" y1="355" x2="876" y2="355" stroke="#718096" stroke-width="2" marker-end="url(#ah)"/>
+<text x="848" y="345" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#718096" text-anchor="middle" font-weight="normal">calls</text>
+<text x="600" y="460" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="#2d3748" text-anchor="middle" font-weight="normal" font-style="italic">create() builds the tree, runs initialize(), returns the export handle.</text>
+<text x="600" y="485" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="#2d3748" text-anchor="middle" font-weight="normal" font-style="italic">The handle IS the state — one per device instance.</text>
+</svg>

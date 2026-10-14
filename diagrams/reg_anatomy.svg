@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="1200" height="520" viewBox="0 0 1200 520">
+<defs>
+<marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2d3748"/></marker>
+<marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c53030"/></marker>
+<marker id="ahm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#718096"/></marker>
+</defs>
+<rect width="1200" height="520" fill="#ffffff"/>
+<text x="30" y="36" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="16" fill="#2d3748" text-anchor="start" font-weight="bold">struct timer_ch_regs__ctrl_s : packed_s&lt;LITTLE_ENDIAN&gt;</text>
+<rect x="30" y="52" width="420" height="56" rx="0" fill="#ffffff" stroke="#718096" stroke-width="1.5"/>
+<text x="240.0" y="86" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="15" fill="#2d3748" text-anchor="middle" font-weight="bold">rsvd_8</text>
+<text x="34" y="126" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="12" fill="#718096" text-anchor="start" font-weight="normal">31</text>
+<text x="446" y="126" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="12" fill="#718096" text-anchor="end" font-weight="normal">8</text>
+<rect x="450" y="52" width="220" height="56" rx="0" fill="#ebf4ff" stroke="#2b6cb0" stroke-width="1.5"/>
+<text x="560.0" y="86" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="15" fill="#1a365d" text-anchor="middle" font-weight="bold">prescale</text>
+<text x="454" y="126" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="12" fill="#718096" text-anchor="start" font-weight="normal">7</text>
+<text x="666" y="126" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="12" fill="#718096" text-anchor="end" font-weight="normal">4</text>
+<rect x="670" y="52" width="90" height="56" rx="0" fill="#ffffff" stroke="#718096" stroke-width="1.5"/>
+<text x="715.0" y="86" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="15" fill="#2d3748" text-anchor="middle" font-weight="bold">rsvd</text>
+<text x="674" y="126" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="12" fill="#718096" text-anchor="start" font-weight="normal">3</text>
+<rect x="760" y="52" width="110" height="56" rx="0" fill="#ebf4ff" stroke="#2b6cb0" stroke-width="1.5"/>
+<text x="815.0" y="86" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="15" fill="#1a365d" text-anchor="middle" font-weight="bold">mode</text>
+<text x="764" y="126" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="12" fill="#718096" text-anchor="start" font-weight="normal">2</text>
+<rect x="870" y="52" width="110" height="56" rx="0" fill="#ebf4ff" stroke="#2b6cb0" stroke-width="1.5"/>
+<text x="925.0" y="86" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="15" fill="#1a365d" text-anchor="middle" font-weight="bold">irq_en</text>
+<text x="874" y="126" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="12" fill="#718096" text-anchor="start" font-weight="normal">1</text>
+<rect x="980" y="52" width="110" height="56" rx="0" fill="#ebf4ff" stroke="#2b6cb0" stroke-width="1.5"/>
+<text x="1035.0" y="86" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="15" fill="#1a365d" text-anchor="middle" font-weight="bold">en</text>
+<text x="984" y="126" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="12" fill="#718096" text-anchor="start" font-weight="normal">0</text>
+<text x="1100" y="86" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#718096" text-anchor="start" font-weight="normal" font-style="italic">← field layout</text>
+<rect x="30" y="160" width="540" height="150" rx="10" fill="#ebf4ff" stroke="#2b6cb0" stroke-width="2"/>
+<text x="42" y="185" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#1a365d" text-anchor="start" font-weight="bold">pure component timer_ch_regs__ctrl_c</text>
+<text x="44" y="211" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#1a365d" text-anchor="start" font-weight="normal">  : reg_c&lt;timer_ch_regs__ctrl_s, READWRITE, 32&gt; {}</text>
+<text x="44" y="235" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#1a365d" text-anchor="start" font-weight="normal"></text>
+<text x="44" y="259" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#1a365d" text-anchor="start" font-weight="normal">read()  write(v)  write_masked(m, v)</text>
+<text x="44" y="283" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#1a365d" text-anchor="start" font-weight="normal">read_val()  write_val(raw)  write_field("en", 1)</text>
+<text x="580" y="200" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#718096" text-anchor="start" font-weight="normal" font-style="italic">← one register:</text>
+<text x="580" y="220" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#718096" text-anchor="start" font-weight="normal" font-style="italic">   value type + access + width</text>
+<rect x="30" y="340" width="540" height="160" rx="10" fill="#ebf4ff" stroke="#2b6cb0" stroke-width="2"/>
+<text x="42" y="365" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#1a365d" text-anchor="start" font-weight="bold">pure component timer_ch_regs_c : reg_group_c</text>
+<text x="44" y="390" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#1a365d" text-anchor="start" font-weight="normal">timer_ch_regs__ctrl_c   ctrl;     // @0x0</text>
+<text x="44" y="413" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#1a365d" text-anchor="start" font-weight="normal">timer_ch_regs__load_c   load;     // @0x4</text>
+<text x="44" y="436" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#1a365d" text-anchor="start" font-weight="normal">timer_ch_regs__status_c status;   // @0x8</text>
+<text x="44" y="459" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#1a365d" text-anchor="start" font-weight="normal">timer_ch_regs__count_c  count;    // @0xC</text>
+<text x="44" y="482" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#1a365d" text-anchor="start" font-weight="normal">get_offset_of_instance("load") → 0x4</text>
+<text x="580" y="380" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#718096" text-anchor="start" font-weight="normal" font-style="italic">← a bank: registers + offsets</text>
+<rect x="820" y="160" width="350" height="340" rx="10" fill="#fff1e8" stroke="#9c4221" stroke-width="2"/>
+<text x="832" y="186" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="#652b19" text-anchor="start" font-weight="bold">In the operation model</text>
+<text x="834" y="213" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#652b19" text-anchor="start" font-weight="normal">component timer_ch_c {</text>
+<text x="834" y="238" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#652b19" text-anchor="start" font-weight="normal">  timer_ch_regs_c regs;</text>
+<text x="834" y="263" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#652b19" text-anchor="start" font-weight="normal"></text>
+<text x="834" y="288" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#652b19" text-anchor="start" font-weight="normal">  init: regs.set_handle(h);</text>
+<text x="834" y="313" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#652b19" text-anchor="start" font-weight="normal"></text>
+<text x="834" y="338" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#652b19" text-anchor="start" font-weight="normal">  regs.load.write_val(t);</text>
+<text x="834" y="363" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#652b19" text-anchor="start" font-weight="normal">  sts = regs.status.read();</text>
+<text x="834" y="388" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#652b19" text-anchor="start" font-weight="normal">  if (sts.done == 1) ...</text>
+<text x="834" y="413" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#652b19" text-anchor="start" font-weight="normal">  regs.ctrl</text>
+<text x="834" y="438" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#652b19" text-anchor="start" font-weight="normal">    .write_field("en", 1);</text>
+<text x="834" y="463" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#652b19" text-anchor="start" font-weight="normal">}</text>
+</svg>

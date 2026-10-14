@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="1200" height="470" viewBox="0 0 1200 470">
+<defs>
+<marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2d3748"/></marker>
+<marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c53030"/></marker>
+<marker id="ahm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#718096"/></marker>
+</defs>
+<rect width="1200" height="470" fill="#ffffff"/>
+<text x="30" y="34" font-family="Helvetica, Arial, sans-serif" font-size="20" fill="#2d3748" text-anchor="start" font-weight="bold">What reaches the bus</text>
+<text x="30" y="92" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="16" fill="#2d3748" text-anchor="start" font-weight="normal">regs.load.write(v)</text>
+<rect x="470" y="68" width="200" height="38" rx="6" fill="#f3efff" stroke="#6b46c1" stroke-width="2"/>
+<text x="482" y="93" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="16" fill="#6b46c1" text-anchor="start" font-weight="bold">W</text>
+<text x="504" y="93" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#2d3748" text-anchor="start" font-weight="normal">LOAD = v</text>
+<text x="940" y="92" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#718096" text-anchor="start" font-weight="normal" font-style="italic">whole register, one write</text>
+<text x="30" y="164" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="16" fill="#2d3748" text-anchor="start" font-weight="normal">regs.load.write_val(0x19)</text>
+<rect x="470" y="140" width="200" height="38" rx="6" fill="#f3efff" stroke="#6b46c1" stroke-width="2"/>
+<text x="482" y="165" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="16" fill="#6b46c1" text-anchor="start" font-weight="bold">W</text>
+<text x="504" y="165" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#2d3748" text-anchor="start" font-weight="normal">LOAD = 0x19</text>
+<text x="940" y="164" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#718096" text-anchor="start" font-weight="normal" font-style="italic">raw value, one write</text>
+<text x="30" y="236" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="16" fill="#2d3748" text-anchor="start" font-weight="normal">regs.status.read()</text>
+<rect x="470" y="212" width="200" height="38" rx="6" fill="#e6f6ec" stroke="#2f855a" stroke-width="2"/>
+<text x="482" y="237" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="16" fill="#2f855a" text-anchor="start" font-weight="bold">R</text>
+<text x="504" y="237" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#2d3748" text-anchor="start" font-weight="normal">STATUS</text>
+<text x="940" y="236" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#718096" text-anchor="start" font-weight="normal" font-style="italic">one read → struct</text>
+<text x="30" y="308" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="16" fill="#2d3748" text-anchor="start" font-weight="normal">regs.ctrl.write_field("en", 1)</text>
+<rect x="470" y="284" width="200" height="38" rx="6" fill="#e6f6ec" stroke="#2f855a" stroke-width="2"/>
+<text x="482" y="309" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="16" fill="#2f855a" text-anchor="start" font-weight="bold">R</text>
+<text x="504" y="309" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#2d3748" text-anchor="start" font-weight="normal">CTRL</text>
+<line x1="670" y1="303" x2="696" y2="303" stroke="#2d3748" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="700" y="284" width="200" height="38" rx="6" fill="#f3efff" stroke="#6b46c1" stroke-width="2"/>
+<text x="712" y="309" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="16" fill="#6b46c1" text-anchor="start" font-weight="bold">W</text>
+<text x="734" y="309" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#2d3748" text-anchor="start" font-weight="normal">CTRL | en</text>
+<text x="940" y="308" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#718096" text-anchor="start" font-weight="normal" font-style="italic">read-modify-write (LRM §21.14.1)</text>
+<text x="30" y="380" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="16" fill="#2d3748" text-anchor="start" font-weight="normal">regs.ctrl.write_masked(m, v)</text>
+<rect x="470" y="356" width="200" height="38" rx="6" fill="#e6f6ec" stroke="#2f855a" stroke-width="2"/>
+<text x="482" y="381" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="16" fill="#2f855a" text-anchor="start" font-weight="bold">R</text>
+<text x="504" y="381" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#2d3748" text-anchor="start" font-weight="normal">CTRL</text>
+<line x1="670" y1="375" x2="696" y2="375" stroke="#2d3748" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="700" y="356" width="200" height="38" rx="6" fill="#f3efff" stroke="#6b46c1" stroke-width="2"/>
+<text x="712" y="381" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="16" fill="#6b46c1" text-anchor="start" font-weight="bold">W</text>
+<text x="734" y="381" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#2d3748" text-anchor="start" font-weight="normal">(cur&amp;~m)|(v&amp;m)</text>
+<text x="940" y="380" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#718096" text-anchor="start" font-weight="normal" font-style="italic">read-modify-write</text>
+<rect x="30" y="415" width="1140" height="50" rx="10" fill="#fff5f5" stroke="#c53030" stroke-width="2"/>
+<text x="50" y="446" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#742a2a" text-anchor="start" font-weight="bold">A field write still READS the register. If a read has side effects (clear-on-read), that matters.</text>
+</svg>

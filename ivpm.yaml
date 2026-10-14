@@ -1,0 +1,51 @@
+# yaml-language-server: $schema=https://fvutils.github.io/ivpm/ivpm.schema.json
+package:
+  name: pss-bring-up
+
+  dep-sets:
+  # What a lab attendee fetches. `ivpm update` with no dep-set lands here.
+  - name: use
+    uses: [tools, pssc-src]
+
+  - name: dev
+    uses: [use, dev-skills]
+
+  # pssc and friends (pssparser, the zuspec back-ends, dv-solve, peakrdl-pss)
+  # from source.
+  # The labs need operation-model fixes that are not in the PyPI release yet:
+  # pssc 0.1.0 fails lab 1 with "call to 'ExprAttribute' has no lowering in
+  # the C target". pssc's `dev` dep-set is what brings its libraries from git;
+  # everything is installed into packages/python, so `pssc` on PATH is the
+  # source tree. When PyPI catches up, replace this with `src: pypi` in `tools`.
+  - name: pssc-src
+    deps:
+    - name: pssc
+      url: https://github.com/psstools/pssc.git
+      dep-set: dev
+    # Also ahead of PyPI: 0.0.1 drops the field descriptions that the checked-in
+    # lab2/pss/timer_regs_pkg.pss carries as comments. `deps: skip`: its only
+    # dep-set is a developer environment (peakrdl-uvm, pytest, sphinx).
+    - name: peakrdl-pss
+      url: https://github.com/psstools/peakrdl-pss.git
+      deps: skip
+
+  # Agent skills for the two authoring surfaces these labs work in: SystemRDL
+  # register descriptions and PSS.
+  - name: dev-skills
+    default-dep-set: default-dev
+    deps:
+    - { name: agent-skills-systemrdl, url: https://github.com/fvutils/agent-skills-systemrdl.git }
+    - { name: agent-skills-pss, url: https://github.com/psstools/agent-skills-pss.git }
+
+  # Everything else the labs call except gcc: Verilator runs the
+  # SystemVerilog harness, and `peakrdl pss` (plugin in pssc-src) turns lab 2's
+  # SystemRDL into a PSS register package (`make regs`).
+  - name: tools
+    deps:
+    - name: verilator
+      src: ivpm.yaml
+      url: https://edapack.github.io/ivpm.yaml
+      dep-set: verilator
+    # peakrdl-pss is a plugin: it does not pull in the `peakrdl` CLI.
+    - name: peakrdl
+      src: pypi

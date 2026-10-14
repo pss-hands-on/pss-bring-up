@@ -1,0 +1,10 @@
+// Types shared by the operation model and its callers.
+package timer_types_pkg {
+    // How to program one channel.
+    struct timer_cfg_s {
+        bit[32]  ticks;         // reload value
+        bit[4]   prescale;      // tick every 2^prescale clocks
+        bool     periodic;      // reload and run again on expiry
+        bool     irq_en;        // raise the interrupt on expiry
+    }
+}

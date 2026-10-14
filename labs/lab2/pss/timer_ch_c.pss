@@ -1,0 +1,56 @@
+import addr_reg_pkg::*;
+import plat_pkg::*;
+import timer_regs_pkg::*;
+import timer_types_pkg::*;
+
+// One timer channel. Every register access goes through the register model
+// generated from rdl/timer.rdl -- no raw offsets, no hand-written masks.
+component timer_ch_c {
+    int              id;
+    timer_ch_regs_c  regs;      // this channel's register bank
+
+    solve function void initialize(int i, addr_handle_t bank) {
+        id = i;
+        regs.set_handle(bank);
+    }
+
+    // Program the channel. Does not start it.
+    target function void configure(timer_cfg_s cfg) {
+        timer_ch_regs__ctrl_s ctrl;
+        timer_ch_regs__load_s load;
+
+        load.value = cfg.ticks;
+        regs.load.write(load);
+
+        // Whole-register write: build the value, then write it once.
+        ctrl.en       = 0;
+        ctrl.irq_en   = cfg.irq_en;
+        ctrl.mode     = cfg.periodic;
+        ctrl.prescale = cfg.prescale;
+        regs.ctrl.write(ctrl);
+    }
+
+    target function void start() {
+        regs.status.write_val(1);         // DONE is write-1-to-clear
+        regs.ctrl.write_field("en", 1);   // read-modify-write of one field
+    }
+
+    target function void stop() {
+        regs.ctrl.write_field("en", 0);
+    }
+
+    target function bool is_done() {
+        timer_ch_regs__status_s sts = regs.status.read();
+        return sts.done == 1;
+    }
+
+    target function bit[32] remaining() {
+        return regs.count.read_val();
+    }
+
+    target function void wait_done(int poll_us) {
+        while (!is_done()) {
+            plat_delay_us(poll_us);
+        }
+    }
+}

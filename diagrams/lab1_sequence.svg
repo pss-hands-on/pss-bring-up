@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="1200" height="560" viewBox="0 0 1200 560">
+<defs>
+<marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2d3748"/></marker>
+<marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c53030"/></marker>
+<marker id="ahm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#718096"/></marker>
+</defs>
+<rect width="1200" height="560" fill="#ffffff"/>
+<rect x="35.0" y="15" width="150" height="44" rx="10" fill="#f1f3f5" stroke="#4a5568" stroke-width="2"/>
+<text x="110.0" y="42.6" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="#1a202c" text-anchor="middle" font-weight="bold">test code</text>
+<line x1="110" y1="59" x2="110" y2="545" stroke="#cbd5e0" stroke-width="2" stroke-dasharray="6 5"/>
+<rect x="305.0" y="15" width="150" height="44" rx="10" fill="#ebf4ff" stroke="#2b6cb0" stroke-width="2"/>
+<text x="380.0" y="42.6" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="#1a365d" text-anchor="middle" font-weight="bold">soc_c</text>
+<line x1="380" y1="59" x2="380" y2="545" stroke="#cbd5e0" stroke-width="2" stroke-dasharray="6 5"/>
+<rect x="545.0" y="15" width="150" height="44" rx="10" fill="#ebf4ff" stroke="#2b6cb0" stroke-width="2"/>
+<text x="620.0" y="42.6" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="#1a365d" text-anchor="middle" font-weight="bold">tmr[1]</text>
+<line x1="620" y1="59" x2="620" y2="545" stroke="#cbd5e0" stroke-width="2" stroke-dasharray="6 5"/>
+<rect x="850.0" y="15" width="220" height="44" rx="10" fill="#e6f6ec" stroke="#2f855a" stroke-width="2"/>
+<text x="960.0" y="42.6" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="#1c4532" text-anchor="middle" font-weight="bold">environment (imports)</text>
+<line x1="960" y1="59" x2="960" y2="545" stroke="#cbd5e0" stroke-width="2" stroke-dasharray="6 5"/>
+<line x1="110" y1="95" x2="380" y2="95" stroke="#2d3748" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="164.4" y="74" width="161.2" height="21" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="245.0" y="88" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#2d3748" text-anchor="middle" font-weight="normal">delay_ticks(1, 35)</text>
+<line x1="380" y1="135" x2="620" y2="135" stroke="#2d3748" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="457.2" y="114" width="85.6" height="21" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="500.0" y="128" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#2d3748" text-anchor="middle" font-weight="normal">start(35)</text>
+<line x1="620" y1="175" x2="960" y2="175" stroke="#2f855a" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="709.4" y="154" width="161.2" height="21" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="790.0" y="168" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#2f855a" text-anchor="middle" font-weight="normal">write32(+0x108, 1)</text>
+<line x1="620" y1="211" x2="960" y2="211" stroke="#2f855a" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="705.2" y="190" width="169.6" height="21" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="790.0" y="204" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#2f855a" text-anchor="middle" font-weight="normal">write32(+0x104, 35)</text>
+<line x1="620" y1="247" x2="960" y2="247" stroke="#2f855a" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="709.4" y="226" width="161.2" height="21" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="790.0" y="240" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#2f855a" text-anchor="middle" font-weight="normal">write32(+0x100, 1)</text>
+<line x1="380" y1="300" x2="620" y2="300" stroke="#2d3748" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="440.4" y="279" width="119.2" height="21" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="500.0" y="293" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#2d3748" text-anchor="middle" font-weight="normal">wait_done(10)</text>
+<rect x="560" y="320" width="560" height="160" rx="4" fill="none" stroke="#718096" stroke-width="2" stroke-dasharray="7 5"/>
+<text x="572" y="340" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#718096" text-anchor="start" font-weight="bold">loop  while !is_done()</text>
+<line x1="620" y1="375" x2="960" y2="375" stroke="#2f855a" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="726.2" y="354" width="127.6" height="21" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="790.0" y="368" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#2f855a" text-anchor="middle" font-weight="normal">read32(+0x108)</text>
+<line x1="960" y1="410" x2="620" y2="410" stroke="#718096" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#ah)"/>
+<rect x="751.4" y="389" width="77.2" height="21" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="790.0" y="403" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#718096" text-anchor="middle" font-weight="normal">DONE = 0</text>
+<line x1="620" y1="455" x2="960" y2="455" stroke="#2f855a" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="713.6" y="434" width="152.79999999999998" height="21" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="790.0" y="448" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#2f855a" text-anchor="middle" font-weight="normal">plat_delay_us(10)</text>
+<line x1="960" y1="510" x2="620" y2="510" stroke="#718096" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#ah)"/>
+<rect x="709.4" y="489" width="161.2" height="21" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="790.0" y="503" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#718096" text-anchor="middle" font-weight="normal">DONE = 1  → return</text>
+<line x1="380" y1="535" x2="110" y2="535" stroke="#718096" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#ah)"/>
+<rect x="214.8" y="514" width="60.4" height="21" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="245.0" y="528" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#718096" text-anchor="middle" font-weight="normal">return</text>
+</svg>

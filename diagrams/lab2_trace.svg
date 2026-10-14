@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="1200" height="430" viewBox="0 0 1200 430">
+<defs>
+<marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2d3748"/></marker>
+<marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c53030"/></marker>
+<marker id="ahm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#718096"/></marker>
+</defs>
+<rect width="1200" height="430" fill="#ffffff"/>
+<text x="30" y="32" font-family="Helvetica, Arial, sans-serif" font-size="18" fill="#2d3748" text-anchor="start" font-weight="bold">one_shot(0, 25) — identical in C, SystemVerilog and Python</text>
+<rect x="30" y="50" width="460" height="32" rx="4" fill="#f3efff" stroke="#6b46c1" stroke-width="1.5"/>
+<text x="44" y="72" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="15" fill="#6b46c1" text-anchor="start" font-weight="bold">W</text>
+<text x="70" y="72" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="15" fill="#2d3748" text-anchor="start" font-weight="normal">ch0.LOAD   = 0x19</text>
+<text x="510" y="72" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#718096" text-anchor="start" font-weight="normal" font-style="italic">configure: load.write()</text>
+<rect x="30" y="90" width="460" height="32" rx="4" fill="#f3efff" stroke="#6b46c1" stroke-width="1.5"/>
+<text x="44" y="112" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="15" fill="#6b46c1" text-anchor="start" font-weight="bold">W</text>
+<text x="70" y="112" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="15" fill="#2d3748" text-anchor="start" font-weight="normal">ch0.CTRL   = 0x00</text>
+<text x="510" y="112" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#718096" text-anchor="start" font-weight="normal" font-style="italic">configure: ctrl.write() (EN=0)</text>
+<rect x="30" y="130" width="460" height="32" rx="4" fill="#f3efff" stroke="#6b46c1" stroke-width="1.5"/>
+<text x="44" y="152" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="15" fill="#6b46c1" text-anchor="start" font-weight="bold">W</text>
+<text x="70" y="152" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="15" fill="#2d3748" text-anchor="start" font-weight="normal">ch0.STATUS = 0x01</text>
+<text x="510" y="152" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#718096" text-anchor="start" font-weight="normal" font-style="italic">start: clear DONE (W1C)</text>
+<rect x="30" y="170" width="460" height="32" rx="4" fill="#e6f6ec" stroke="#2f855a" stroke-width="1.5"/>
+<text x="44" y="192" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="15" fill="#2f855a" text-anchor="start" font-weight="bold">R</text>
+<text x="70" y="192" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="15" fill="#2d3748" text-anchor="start" font-weight="normal">ch0.CTRL   -&gt; 0x00</text>
+<text x="510" y="192" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#718096" text-anchor="start" font-weight="normal" font-style="italic">start: write_field("en",1) — read…</text>
+<rect x="30" y="210" width="460" height="32" rx="4" fill="#f3efff" stroke="#6b46c1" stroke-width="1.5"/>
+<text x="44" y="232" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="15" fill="#6b46c1" text-anchor="start" font-weight="bold">W</text>
+<text x="70" y="232" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="15" fill="#2d3748" text-anchor="start" font-weight="normal">ch0.CTRL   = 0x01</text>
+<text x="510" y="232" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#718096" text-anchor="start" font-weight="normal" font-style="italic">…modify, write</text>
+<rect x="30" y="250" width="460" height="32" rx="4" fill="#e6f6ec" stroke="#2f855a" stroke-width="1.5"/>
+<text x="44" y="272" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="15" fill="#2f855a" text-anchor="start" font-weight="bold">R</text>
+<text x="70" y="272" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="15" fill="#2d3748" text-anchor="start" font-weight="normal">ch0.STATUS -&gt; 0x02</text>
+<text x="510" y="272" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#718096" text-anchor="start" font-weight="normal" font-style="italic">wait_done: BUSY</text>
+<rect x="30" y="290" width="460" height="32" rx="4" fill="#e6f6ec" stroke="#2f855a" stroke-width="1.5"/>
+<text x="44" y="312" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="15" fill="#2f855a" text-anchor="start" font-weight="bold">R</text>
+<text x="70" y="312" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="15" fill="#2d3748" text-anchor="start" font-weight="normal">ch0.STATUS -&gt; 0x02</text>
+<text x="510" y="312" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#718096" text-anchor="start" font-weight="normal" font-style="italic">  (plat_delay_us between polls)</text>
+<rect x="30" y="330" width="460" height="32" rx="4" fill="#e6f6ec" stroke="#2f855a" stroke-width="1.5"/>
+<text x="44" y="352" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="15" fill="#2f855a" text-anchor="start" font-weight="bold">R</text>
+<text x="70" y="352" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="15" fill="#2d3748" text-anchor="start" font-weight="normal">ch0.STATUS -&gt; 0x02</text>
+<rect x="30" y="370" width="460" height="32" rx="4" fill="#e6f6ec" stroke="#2f855a" stroke-width="1.5"/>
+<text x="44" y="392" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="15" fill="#2f855a" text-anchor="start" font-weight="bold">R</text>
+<text x="70" y="392" font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="15" fill="#2d3748" text-anchor="start" font-weight="normal">ch0.STATUS -&gt; 0x01</text>
+<text x="510" y="392" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#718096" text-anchor="start" font-weight="normal" font-style="italic">DONE → return</text>
+</svg>

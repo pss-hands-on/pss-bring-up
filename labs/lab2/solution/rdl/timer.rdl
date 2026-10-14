@@ -1,0 +1,38 @@
+// A two-channel timer block. Each channel is a regfile at a 0x100 stride.
+regfile timer_ch_regs {
+    reg {
+        name = "Control";
+        field { sw = rw; hw = r; desc = "Enable the counter";        } en      [0:0] = 0;
+        field { sw = rw; hw = r; desc = "Raise irq when DONE";       } irq_en  [1:1] = 0;
+        field { sw = rw; hw = r; desc = "0=one-shot, 1=periodic";    } mode    [2:2] = 0;
+        field { sw = rw; hw = r; desc = "Prescale: tick every 2^n";  } prescale[7:4] = 0;
+    } ctrl @ 0x0;
+
+    reg {
+        name = "Reload value";
+        field { sw = rw; hw = r; } value[31:0] = 0;
+    } load @ 0x4;
+
+    reg {
+        name = "Status";
+        field { sw = rw; hw = w; onwrite = woclr; desc = "Count reached zero"; } done[0:0] = 0;
+        field { sw = r;  hw = w; desc = "Counter running"; } busy[1:1] = 0;
+        // Exercise 2.1: expired again while DONE was still set.
+        field { sw = rw; hw = w; onwrite = woclr; desc = "Missed expiry"; } ovf[2:2] = 0;
+    } status @ 0x8;
+
+    reg {
+        name = "Current count";
+        field { sw = r; hw = w; } value[31:0] = 0;
+    } count @ 0xC;
+};
+
+addrmap timer_regs {
+    reg {
+        name = "Block ID";
+        field { sw = r; hw = na; } id[15:0] = 0x7A11;
+        field { sw = r; hw = na; } rev[23:16] = 0x01;
+    } id @ 0x0;
+
+    timer_ch_regs ch[2] @ 0x100 += 0x100;
+};

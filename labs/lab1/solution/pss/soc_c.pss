@@ -1,0 +1,29 @@
+import addr_reg_pkg::*;
+
+// The root of the operation model: a block with two timer channels
+// at a 0x100 stride.
+component soc_c {
+    timer_c  tmr[2];
+
+    solve function void initialize(addr_handle_t base) {
+        foreach (tmr[i]) {
+            tmr[i].initialize(i, make_handle_from_handle(base, i * 0x100));
+        }
+    }
+
+    // A composite operation: start a timer and block until it expires,
+    // or until max_polls polls have gone by. Returns false on timeout.
+    target function bool delay_ticks(int t, bit[32] ticks, int max_polls) {
+        tmr[t].start(ticks);
+        return tmr[t].wait_done(10, max_polls);
+    }
+
+    // Stop timer 't' -- e.g. after delay_ticks() timed out.
+    target function void cancel(int t) {
+        tmr[t].stop();
+    }
+
+    // The API the environment sees.
+    export target function delay_ticks;
+    export target function cancel;
+}
