@@ -11,6 +11,9 @@ packages/
 labs/**/gen/
 labs/**/build/
 
+# ivpm links the node package it fetches here
+/node_modules
+
 # Deck build
 pptx/node_modules/
 
