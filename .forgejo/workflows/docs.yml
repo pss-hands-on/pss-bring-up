@@ -1,0 +1,106 @@
+# pss-hands-on/pss-bring-up -- docs, on Forgejo Actions.
+#
+# THIS IS THE ONLY THING THAT PUBLISHES THESE DOCS. Its counterpart,
+# .github/workflows/docs.yml, builds them too, as a check, and publishes
+# nothing. dvkit.org owns all documentation: this repo's site lands at
+# dvkit.org/pss-hands-on/pss-bring-up/. dvkit.org is a single Cloudflare Pages
+# project and a deploy replaces the WHOLE site, so the publisher is host-side:
+#
+#   docs-fetch pss-hands-on/pss-bring-up main   # artifact -> staging/
+#   docs-promote / docs-deploy                  # -> dvkit.org/pss-hands-on/pss-bring-up/
+#
+# The built site leaves as an ARTIFACT and nothing else. This job holds no
+# deploy credential.
+#
+# COPY THIS AS A PAIR. The two files differ only where the forges do: this
+# side adds the internal-identifier check, uploads with forgejo/upload-artifact
+# under the name docs-fetch matches, and uses actions/cache v4. The GitHub side
+# passes GITHUB_TOKEN to ci/docs.sh and uses actions/cache v5. If you are
+# changing anything else, they are drifting.
+#
+# What runs is ci/docs.sh -- the same script on both forges, and on a laptop.
+#
+# NO release-authority gate: that switch decides who publishes PACKAGES. Docs
+# publish from Forgejo to dvkit.org whichever side holds release authority.
+#
+# FORGEJO RUNNER CONSTRAINTS -- measured on this instance, not assumed.
+#   * `ubuntu-latest` is catthehacker/ubuntu:act-22.04 with Python 3.10, and
+#     pssc requires >= 3.12 -- hence `ubuntu-24.04` (act-24.04).
+#   * `python` unqualified does not exist; ci/docs.sh uses python3.
+#   * No third-party actions: a bare `uses:` resolves against code.forgejo.org.
+#     actions/checkout, actions/cache and forgejo/upload-artifact resolve.
+#
+# Trial-run a change before landing it:
+#   docker run --rm -v "$PWD:/w" -w /w catthehacker/ubuntu:act-24.04 ci/docs.sh
+
+name: Docs
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  docs:
+    name: Build and check the docs site
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check for internal identifiers in tracked files
+        # This repo is published to git.dvkit.org, so anything committed here is
+        # public. Internal host names, tailnet addresses and CGNAT-range IPs
+        # must not appear in tracked files -- if a build ever needs one, it
+        # belongs in a repository secret, which is masked in logs.
+        run: |
+          pattern='perch-char\.ts\.net|\.ts\.net|a9550|100\.(6[4-9]|[7-9][0-9]|1[01][0-9]|12[0-7])\.[0-9]+\.[0-9]+'
+          if git grep -nIE "$pattern" -- . ':!.forgejo/workflows' ; then
+            echo "::error::internal identifier found in a tracked file (see matches above)"
+            exit 1
+          fi
+          echo "OK: no internal identifiers in tracked files"
+
+      # The ivpm cache holds the prebuilt tools (Verilator, from edapack).
+      # Restore and save are separate steps so the save key can name what the
+      # cache HOLDS after ci/docs.sh -- see ci/ivpm-cache-key.sh.
+      - name: Restore the ivpm package cache
+        id: ivpm-restore
+        uses: actions/cache/restore@v4
+        with:
+          path: ~/.cache/ivpm
+          key: ivpm-docs-${{ runner.os }}-
+          restore-keys: |
+            ivpm-docs-${{ runner.os }}-
+
+      - name: Build and check the docs
+        # No GITHUB_TOKEN here: on Forgejo github.token is a FORGEJO token,
+        # and ivpm would send it to api.github.com and get a 401.
+        run: ci/docs.sh
+
+      - name: Compute the ivpm cache key
+        id: ivpm-key
+        if: always()
+        run: |
+          k=$(ci/ivpm-cache-key.sh)
+          echo "key=${k:+ivpm-docs-${{ runner.os }}-$k}" >> "$GITHUB_OUTPUT"
+
+      - name: Save the ivpm package cache
+        if: >-
+          always() && steps.ivpm-key.outputs.key != '' &&
+          steps.ivpm-key.outputs.key != steps.ivpm-restore.outputs.cache-matched-key
+        uses: actions/cache/save@v4
+        with:
+          path: ~/.cache/ivpm
+          key: ${{ steps.ivpm-key.outputs.key }}
+
+      - name: Upload the site
+        # Consumed by the host-side poller: `docs-fetch pss-hands-on/pss-bring-up
+        # main`. The name is the docs-<org>-<repo> convention docs-fetch matches
+        # on, and `/**` makes the site directory the ZIP ROOT -- docs-fetch
+        # refuses an artifact with no index.html at the top level.
+        uses: forgejo/upload-artifact@v4
+        with:
+          name: docs-pss-hands-on-pss-bring-up
+          path: docs/_build/site/**
+          if-no-files-found: error

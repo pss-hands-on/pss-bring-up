@@ -1,0 +1,38 @@
+/* The decks: the palette and type scale of the original Marp deck. */
+:root {
+  --r-main-font-size: 28px;
+  --r-heading-color: #1a365d;
+  --r-heading1-size: 1.6em;
+  --r-heading2-size: 1.25em;
+  --r-heading-text-transform: none;
+  --r-link-color: #2b6cb0;
+}
+.reveal { text-align: left; }
+.reveal p { text-align: left; }
+.reveal h1, .reveal h2 { text-align: left; margin-bottom: 0.5em; }
+.reveal section > img, .reveal p > img, .reveal figure img { display: block; margin: 0.3em auto; max-height: 520px; }
+.reveal ul, .reveal ol { display: block; margin-left: 1em; }
+.reveal table { font-size: 0.72em; margin: 0.4em 0; }
+.reveal table th, .reveal table td { padding: 0.25em 0.6em; }
+/* sphinx-pss step tables: six or more rows have to fit one slide. */
+.reveal table.pss-steps, .reveal div.pss-steps table { font-size: 0.55em; }
+.reveal table.pss-steps td, .reveal div.pss-steps table td { padding: 0.1em 0.5em; line-height: 1.25; }
+.reveal table.pss-steps p { margin: 0; }
+
+/* Code: Pygments (see setup_app in common.py), not highlight.js. */
+.reveal .highlight pre { box-shadow: none; width: 100%; margin: 0.3em 0; font-size: 0.5em;
+  line-height: 1.3; background: #f6f8fa; border-radius: 0.3em; padding: 0.6em 0.8em; }
+.reveal .highlight pre code { max-height: 560px; }
+.reveal section[data-state="small"] .highlight pre { font-size: 0.47em; }
+.reveal section[data-state="small"] .highlight pre code { max-height: 600px; }
+.reveal .note { color: #718096; font-size: 0.7em; }
+.reveal .sd-row { gap: 1em; flex-wrap: nowrap; display: flex; }
+.reveal .sd-col { flex: 1 1 0; min-width: 0; }
+
+/* Section dividers: `revealjs-section` with a background colour. */
+.reveal section[data-background-color] h1 { color: #ffffff; font-size: 2em; margin-top: 2.5em; }
+.reveal section[data-background-color] p { color: #bee3f8; }
+
+/* Title slide. */
+.reveal section[data-state="title"] h1 { font-size: 2.1em; margin-top: 1.6em; }
+.reveal section[data-state="title"] p strong { color: #2b6cb0; font-size: 1.2em; }

@@ -7,8 +7,13 @@ package:
   - name: use
     uses: [tools, pssc-src]
 
+  # What the docs build needs: the lab tools (each docs project runs its
+  # lab), plus Sphinx and the domain extensions. CI's dep-set.
+  - name: docs
+    uses: [use, docs-tools]
+
   - name: dev
-    uses: [use, dev-skills]
+    uses: [docs, dev-skills]
 
   # pssc and friends (pssparser, the zuspec back-ends, dv-solve, peakrdl-pss)
   # from source.
@@ -28,6 +33,27 @@ package:
     - name: peakrdl-pss
       url: https://github.com/psstools/peakrdl-pss.git
       deps: skip
+
+  # Sphinx, and an extension per language the docs show: sphinx-pss (the
+  # `pss` domain, autodoc and step tables; pygments-pss highlights),
+  # sphinx-systemverilog (the `sv` domain over the generated SV), and
+  # sphinx-peakrdl (the `rdl` domain and register browser; pygments-systemrdl
+  # highlights). The decks are sphinx-revealjs.
+  - name: docs-tools
+    deps:
+    - { name: sphinx, src: pypi }
+    - { name: furo, src: pypi }
+    - { name: myst-parser, src: pypi }
+    - { name: sphinx-design, src: pypi }
+    - { name: sphinx-copybutton, src: pypi }
+    - { name: sphinx-revealjs, src: pypi }
+    - { name: sphinx-peakrdl, src: pypi }
+    - { name: pygments-systemrdl, src: pypi }
+    # From git, like pssc: these track pssparser, which pssc-src installs from
+    # source. `deps: skip` -- their manifests are developer environments.
+    - { name: sphinx-pss, url: https://github.com/psstools/sphinx-pss.git, deps: skip }
+    - { name: pygments-pss, url: https://github.com/psstools/pygments-pss.git, deps: skip }
+    - { name: sphinx-systemverilog, url: https://github.com/fvutils/sphinx-systemverilog.git, deps: skip }
 
   # Agent skills for the two authoring surfaces these labs work in: SystemRDL
   # register descriptions and PSS.

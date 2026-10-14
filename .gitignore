@@ -19,3 +19,7 @@ pptx/node_modules/
 
 __pycache__/
 *.py[co]
+
+# Docs build: docs/build.sh and ci/docs.sh
+docs/_build/
+.ci-venv/

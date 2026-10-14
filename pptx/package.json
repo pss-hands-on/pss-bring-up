@@ -1,7 +1,7 @@
 {
   "name": "pss-operation-models-deck",
   "version": "1.0.0",
-  "description": "PowerPoint build of ../slides.md",
+  "description": "PowerPoint build of the reveal.js decks in ../docs",
   "scripts": {
     "build": "python3 ../diagrams/make_diagrams.py >/dev/null && NODE_PATH=./node_modules node build_deck.js"
   },

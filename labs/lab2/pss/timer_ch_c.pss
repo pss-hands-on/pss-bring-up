@@ -9,6 +9,7 @@ component timer_ch_c {
     int              id;
     timer_ch_regs_c  regs;      // this channel's register bank
 
+    // Bind this channel to its register bank.
     solve function void initialize(int i, addr_handle_t bank) {
         id = i;
         regs.set_handle(bank);
@@ -19,10 +20,13 @@ component timer_ch_c {
         timer_ch_regs__ctrl_s ctrl;
         timer_ch_regs__load_s load;
 
+        /// Step: Write the reload value to LOAD
         load.value = cfg.ticks;
         regs.load.write(load);
 
-        // Whole-register write: build the value, then write it once.
+        /// Step: Write CTRL with the counter disabled
+        /// Build the whole value, then write it once: EN stays 0, so the
+        /// channel is programmed but not running.
         ctrl.en       = 0;
         ctrl.irq_en   = cfg.irq_en;
         ctrl.mode     = cfg.periodic;
@@ -30,25 +34,36 @@ component timer_ch_c {
         regs.ctrl.write(ctrl);
     }
 
+    // Start the count. Does not wait for it.
     target function void start() {
-        regs.status.write_val(1);         // DONE is write-1-to-clear
-        regs.ctrl.write_field("en", 1);   // read-modify-write of one field
+        /// Step: Clear DONE
+        /// STATUS.DONE is write-1-to-clear, so write the clear value; a
+        /// read-modify-write would clear any other W1C bit that is set.
+        regs.status.write_val(1);
+        /// Step: Set CTRL.EN
+        /// A read-modify-write of one field: the rest of CTRL is preserved.
+        regs.ctrl.write_field("en", 1);
     }
 
+    // Stop the count.
     target function void stop() {
         regs.ctrl.write_field("en", 0);
     }
 
+    // Is STATUS.DONE set?
     target function bool is_done() {
         timer_ch_regs__status_s sts = regs.status.read();
         return sts.done == 1;
     }
 
+    // The current count.
     target function bit[32] remaining() {
         return regs.count.read_val();
     }
 
+    // Poll until DONE, calling plat_delay_us(poll_us) between polls.
     target function void wait_done(int poll_us) {
+        /// Step: Poll STATUS.DONE until the count expires
         while (!is_done()) {
             plat_delay_us(poll_us);
         }

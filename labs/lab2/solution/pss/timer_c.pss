@@ -32,8 +32,11 @@ component timer_c {
         cfg.prescale = 0;
         cfg.periodic = false;
         cfg.irq_en   = false;
+        /// Step: Program the channel
         ch[c].configure(cfg);
+        /// Step: Start the count
         ch[c].start();
+        /// Step: Wait for expiry
         ch[c].wait_done(10);
     }
 
@@ -46,14 +49,19 @@ component timer_c {
         cfg.prescale = 0;
         cfg.periodic = true;
         cfg.irq_en   = false;
+        /// Step: Program the channel for periodic mode
         ch[c].configure(cfg);
+        /// Step: Start the count
         ch[c].start();
         repeat (n) {
+            /// Step: Wait for an expiry
             ch[c].wait_done(10);
+            /// Step: Acknowledge it, and count a missed one
             if (ch[c].ack()) {
                 missed += 1;
             }
         }
+        /// Step: Stop the channel
         ch[c].stop();
         return missed;
     }

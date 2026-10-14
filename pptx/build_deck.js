@@ -1,4 +1,4 @@
-// Builds pss-operation-models.pptx: the PowerPoint twin of ../slides.md.
+// Builds pss-operation-models.pptx: the PowerPoint twin of the reveal.js decks.
 //
 // Diagrams are NOT pictures: ../diagrams/make_diagrams.py writes every
 // diagram's primitives to ../diagrams/diagrams.json, and drawDiagram() below
@@ -8,7 +8,8 @@
 //   cd pptx && npm install            # pptxgenjs, once
 //   npm run build    # = make_diagrams.py, then NODE_PATH=./node_modules node build_deck.js
 //
-// Slide text follows slides.md; when one changes, change the other.
+// Slide text follows the reveal.js decks (docs/{home,lab1,lab2}/slides/index.md);
+// when one changes, change the other.
 const fs = require("fs");
 const path = require("path");
 const pptxgen = require("pptxgenjs");

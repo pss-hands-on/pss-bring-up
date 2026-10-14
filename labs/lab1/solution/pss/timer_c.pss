@@ -3,9 +3,10 @@ import plat_pkg::*;
 
 // One timer channel. Registers (raw offsets, for now -- Lab 2 replaces them
 // with a register model):
-//   0x0 CTRL   bit0=EN  bit1=IRQ_EN
-//   0x4 LOAD   reload value
-//   0x8 STATUS bit0=DONE (write 1 to clear)
+//
+// - 0x0 CTRL: bit 0 EN, bit 1 IRQ_EN
+// - 0x4 LOAD: reload value
+// - 0x8 STATUS: bit 0 DONE (write 1 to clear)
 component timer_c {
     // --- State: set once at initialization, read by every operation
     int            id;
@@ -18,12 +19,15 @@ component timer_c {
     }
 
     // --- Operations
+
+    // Start a count of 'ticks': clear DONE, load LOAD, set EN.
     target function void start(bit[32] ticks) {
         write32(make_handle_from_handle(base, 0x8), 1);    // clear DONE
         write32(make_handle_from_handle(base, 0x4), ticks); // LOAD
         write32(make_handle_from_handle(base, 0x0), 1);    // EN
     }
 
+    // Is STATUS.DONE set?
     target function bool is_done() {
         bit[32] sts = read32(make_handle_from_handle(base, 0x8));
         return (sts & 1) != 0;

@@ -1,0 +1,16 @@
+{#- The site is one Sphinx project per section (see docs/_shared/common.py),
+    so no project's own toctree can reach the others. This block links them.
+    `root` is the path from this page to the SITE root: the path to this
+    project's root, plus `site_up` to climb out of a lab's directory. -#}
+{%- set proj = pathto('_static', 1)[:-7] -%}
+{%- set root = proj ~ site_up -%}
+<nav class="site-nav" aria-label="Site sections">
+  <ul>
+  {%- for dir, title, path in site_sections %}
+    <li class="{{ 'current' if dir == site_section }}">
+      <a href="{{ root }}{{ path }}index.html">{{ title }}</a>
+      <a class="site-nav-slides" href="{{ root }}{{ path }}slides/index.html" title="{{ title }}: slides">slides</a>
+    </li>
+  {%- endfor %}
+  </ul>
+</nav>

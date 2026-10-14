@@ -1,0 +1,76 @@
+# pss-hands-on/pss-bring-up -- docs, on GitHub Actions.
+#
+# A CHECK, NOT A PUBLISHER. dvkit.org publishes these docs from the Forgejo
+# side (.forgejo/workflows/docs.yml), and an artifact uploaded here is consumed
+# by nothing; it is kept for looking at a failed build.
+#
+# COPY THIS AS A PAIR. Its counterpart is .forgejo/workflows/docs.yml. If
+# .forgejo/workflows/ is absent the Forgejo runner falls back to running THIS
+# FILE. The two differ only where the forges do: the Forgejo side adds the
+# internal-identifier check and uploads with forgejo/upload-artifact under the
+# name docs-fetch matches. This side passes GITHUB_TOKEN to ci/docs.sh (on
+# Forgejo that token is not a GitHub one) and uses actions/cache v5. If you
+# are changing anything else, they are drifting.
+#
+# What runs is ci/docs.sh -- the same script on both forges, and on a laptop.
+
+name: Docs
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  docs:
+    name: Build and check the docs site
+    # 24.04, not ubuntu-latest: pssc requires Python >= 3.12, and on the
+    # Forgejo runner ubuntu-latest is a 22.04 image with Python 3.10. Named
+    # the same on both sides so the two runs are the same environment.
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Restore the ivpm package cache
+        id: ivpm-restore
+        uses: actions/cache/restore@v5
+        with:
+          path: ~/.cache/ivpm
+          key: ivpm-docs-${{ runner.os }}-
+          restore-keys: |
+            ivpm-docs-${{ runner.os }}-
+
+      - name: Build and check the docs
+        env:
+          # Lets ivpm resolve edapack's `latest` releases through the GitHub
+          # API when its unauthenticated path cannot.
+          GITHUB_TOKEN: ${{ github.token }}
+        run: ci/docs.sh
+
+      - name: Compute the ivpm cache key
+        id: ivpm-key
+        if: always()
+        run: |
+          k=$(ci/ivpm-cache-key.sh)
+          echo "key=${k:+ivpm-docs-${{ runner.os }}-$k}" >> "$GITHUB_OUTPUT"
+
+      - name: Save the ivpm package cache
+        if: >-
+          always() && steps.ivpm-key.outputs.key != '' &&
+          steps.ivpm-key.outputs.key != steps.ivpm-restore.outputs.cache-matched-key
+        uses: actions/cache/save@v5
+        with:
+          path: ~/.cache/ivpm
+          key: ${{ steps.ivpm-key.outputs.key }}
+
+      - name: Upload the site
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: docs-site
+          path: docs/_build/site/
+          if-no-files-found: warn

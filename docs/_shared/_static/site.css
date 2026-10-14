@@ -1,0 +1,19 @@
+/* Cross-section navigation in the sidebar (templates/site-nav.html). */
+.site-nav ul { list-style: none; margin: 0.5rem 0 0.75rem; padding: 0 var(--sidebar-item-spacing-horizontal); }
+.site-nav li { display: flex; justify-content: space-between; align-items: baseline; padding: 0.15rem 0; }
+.site-nav li a { color: var(--color-sidebar-link-text--top-level); text-decoration: none; }
+.site-nav li.current > a:first-child { font-weight: 700; color: var(--color-brand-primary); }
+.site-nav a.site-nav-slides { font-size: var(--font-size--small--2); text-transform: uppercase;
+  letter-spacing: 0.04em; border: 1px solid var(--color-background-border); border-radius: 0.2rem;
+  padding: 0 0.3rem; color: var(--color-foreground-secondary); }
+.site-nav a:hover { text-decoration: underline; }
+.site-nav { border-bottom: 1px solid var(--color-sidebar-background-border); }
+
+/* Diagrams are drawn for a white background. */
+body[data-theme="dark"] img[src$=".svg"] { background: #fff; border-radius: 0.3rem; padding: 0.4rem; }
+@media (prefers-color-scheme: dark) {
+  body:not([data-theme="light"]) img[src$=".svg"] { background: #fff; border-radius: 0.3rem; padding: 0.4rem; }
+}
+
+/* Captured program output. */
+div.highlight-text pre { font-size: 0.8em; }
